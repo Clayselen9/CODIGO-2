@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Exemplo com Bootstrap</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Meu Site</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contato</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Carrossel -->
+    <div id="carouselExample" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel
+
+
+Você disse:
+elabore um formulário (veja o exemplo abaixo) que contém os seguintes elementos:
+* Campos textos de entrada de nome e sobrenome;
+* Campo texto para telefone (máscara telefone);
+* Um campo texto para o e-mail (máscara de e-mail);
+* Um campo texto longo para Mensagem;
+* Um campo lista para língua aplicada no serviço (Inglês, Espanhol, Frances, Português (pt-br));
+* Um campo de upload de arquivo para o protótipo, com controle destinado a transferir um arquivo de foto cujo formato é restrito aos tipos PDF, DOC, DOCX, JPEG ou PNG;
+* Uma lista de múltipla escolha para as linguagens preferidos;
+* Um campo rádio para o tipo de banco de dados recomendado para o serviço;
+* Um campo seleção de opções para o turno de preferência para reuniões;
+* Um campo texto formato time, para indicar melhor horário sugerido para reuniões;
+* Um campo texto formato date, para indicar uma previsão de entrega desejava;
+* O botão de 'limpar' deve reinicializar as entradas do formulário;
+* O botão de 'enviar' deve validar e submeter as entradas do formulário;
+* Realize a validação do formulário quantos seus campos obrigatórios.
+O ChatGPT disse:
+ChatGPT
+Claro! Aqui está um exemplo de um formulário em HTML que atende a todos os requisitos que você mencionou, usando Bootstrap para estilização e algumas bibliotecas para máscaras e validação.
+
+html
+Copiar código
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Exemplo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Formulário de Contato</h2>
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="firstName">Nome:</label>
+            <input type="text" class="form-control" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Sobrenome:</label>
+            <input type="text" class="form-control" id="lastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefone:</label>
+            <input type="text" class="form-control" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Mensagem:</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="language">Língua Aplicada:</label>
+            <select class="form-control" id="language" name="language" required>
+                <option value="">Escolha uma opção</option>
+                <option value="English">Inglês</option>
+                <option value="Spanish">Espanhol</option>
+                <option value="French">Francês</option>
+                <option value="Portuguese">Português (pt-BR)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fileUpload">Upload do Protótipo:</label>
+            <input type="file" class="form-control-file" id="fileUpload" name="fileUpload" accept=".pdf,.doc,.docx,.jpeg,.jpg,.png" required>
+        </div>
+        <div class="form-group">
+            <label for="preferredLanguages">Linguagens Preferidas:</label>
+            <select multiple class="form-control" id="preferredLanguages" name="preferredLanguages[]" required>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="C#">C#</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Banco de Dados Recomendado:</label>
+            <div>
+                <label class="radio-inline"><input type="radio" name="dbType" value="SQL" required> SQL</label>
+                <label class="radio-inline"><input type="radio" name="dbType" value="NoSQL" required> NoSQL</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="meetingShift">Turno Preferido para Reuniões:</label>
+            <select class="form-control" id="meetingShift" name="meetingShift" required>
+                <option value="">Escolha uma opção</option>
+                <option value="morning">Manhã</option>
+                <option value="afternoon">Tarde</option>
+                <option value="evening">Noite</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="suggestedTime">Melhor Horário para Reuniões:</label>
+            <input type="time" class="form-control" id="suggestedTime" name="suggestedTime" required>
+        </div>
+        <div class="form-group">
+            <label for="deliveryDate">Previsão de Entrega:</label>
+            <input type="date" class="form-control" id="deliveryDate" name="deliveryDate" required>
+        </div>
+        <button type="reset" class="btn btn-secondary">Limpar</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#phone').mask('(00) 00000-0000');
+        
+        $('#contactForm').validate({
+            submitHandler: function(form) {
+                alert('Formulário enviado com sucesso!');
+                form.submit();
+            }
+        });
+    });
+</script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
